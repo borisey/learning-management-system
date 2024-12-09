@@ -1,12 +1,17 @@
 version: '3.8'
 services:
-  main_service:
-    build:
-      context: ./main_service
-    ports:
-      - "80:80"
   user_service:
     build:
       context: ./user_service
     ports:
       - "81:81"
+  course_service:
+    build:
+      context: ./course_service
+    ports:
+      - "82:82"
+  main_service:
+    build:
+      context: ./main_service
+    ports:
+      - "80:80"
