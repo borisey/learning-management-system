@@ -4,7 +4,7 @@ FROM php:8.2-fpm
 # Указываю рабочую директорию
 WORKDIR /var/www/html
 
-# Устснавливаю зависимости
+# Устанавливаю зависимости
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
