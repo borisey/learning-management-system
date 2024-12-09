@@ -1,5 +1,23 @@
 version: '3.8'
 services:
+  user_service:
+    build:
+      context: ./user_service
+    ports:
+      - "81:81"
+    depends_on:
+      user_db:
+        condition: service_healthy
+  course_service:
+    build:
+      context: ./course_service
+    ports:
+      - "82:82"
+  main_service:
+    build:
+      context: ./main_service
+    ports:
+      - "80:80"
   # Контейнер с базой данных пользователей
   user_db:
     image: mysql:latest
@@ -18,18 +36,8 @@ services:
     # Линкую внешнюю папку для хранения БД
     volumes:
       - "./user_db:/var/lib/mysql"
-  user_service:
-    build:
-      context: ./user_service
-    ports:
-      - "81:81"
-  course_service:
-    build:
-      context: ./course_service
-    ports:
-      - "82:82"
-  main_service:
-    build:
-      context: ./main_service
-    ports:
-      - "80:80"
+    container_name: user_db
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 1s
+      retries: 1

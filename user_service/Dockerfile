@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 COPY . /var/www/html
+
 RUN composer install
 
 COPY --chown=www-data:www-data . /var/www/html
@@ -29,4 +30,6 @@ COPY --chown=www-data:www-data . /var/www/html
 USER www-data
 
 EXPOSE 81
-CMD ["/var/www/html/yii" , "serve", "0.0.0.0:81"]
+
+CMD ["/var/www/html/yii", "serve", "0.0.0.0:81"]
+CMD ["/var/www/html/yii", "migrate"]
