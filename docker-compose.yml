@@ -1,7 +1,12 @@
 version: '3.8'
 services:
-  user_service:
+  main_service:
     build:
       context: ./main_service
     ports:
       - "80:80"
+  user_service:
+    build:
+      context: ./user_service
+    ports:
+      - "81:81"
