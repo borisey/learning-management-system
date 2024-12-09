@@ -1,5 +1,23 @@
 version: '3.8'
 services:
+  # Контейнер с базой данных пользователей
+  user_db:
+    image: mysql:latest
+    # Подключаю к общей сети с другими контейнерами
+    networks:
+      - default
+    # Показываю наружу порт
+    ports:
+      - "3306:3306"
+    # Задаю параметры для инициализации БД
+    environment:
+      # Пароль к БД
+      MYSQL_ROOT_PASSWORD: root
+      # БД по умолчанию
+      MYSQL_DATABASE: user_db
+    # Линкую внешнюю папку для хранения БД
+    volumes:
+      - "./user_db:/var/lib/mysql"
   user_service:
     build:
       context: ./user_service
