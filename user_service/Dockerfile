@@ -32,4 +32,6 @@ USER www-data
 EXPOSE 81
 
 CMD ["/var/www/html/yii", "serve", "0.0.0.0:81"]
-CMD ["/var/www/html/yii", "migrate"]
+
+# Применяю миграции
+CMD ["/var/www/html/yii", "migrate", "--interactive=0"]

@@ -37,5 +37,6 @@ services:
     volumes:
       - "./user_db:/var/lib/mysql"
     container_name: user_db
+    # Проверяю доступность БД для применения миграций
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
