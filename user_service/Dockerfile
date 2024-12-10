@@ -35,3 +35,5 @@ CMD ["/var/www/html/yii", "serve", "0.0.0.0:81"]
 
 # Применяю миграции
 CMD ["/var/www/html/yii", "migrate", "--interactive=0"]
+
+CMD ["/var/www/html/yii", "serve", "0.0.0.0:81"]
