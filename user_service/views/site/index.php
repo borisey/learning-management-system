@@ -8,7 +8,7 @@ $this->title = 'My Yii Application';
 
     <div class="jumbotron text-center bg-transparent mt-5 mb-5">
         <h1 class="display-4">Управление пользователями</h1>
-        <h2 class="display-5">Список всех пользователей</h2>
+        <h2>Список всех пользователей</h2>
 
         <?php foreach ($users as $user) : ?>
             <p><?= $user->username ?></p>
