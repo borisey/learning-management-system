@@ -38,6 +38,4 @@ services:
       - "./user_db:/var/lib/mysql"
     container_name: user_db
     healthcheck:
-      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
-      timeout: 1s
-      retries: 1
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
