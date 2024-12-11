@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  user_service:
+    build:
+      context: ./user_service
+    ports:
+      - "9090:9090"
