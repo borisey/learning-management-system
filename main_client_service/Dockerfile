@@ -2,6 +2,6 @@ FROM openjdk:17
 
 COPY target/user-0.0.1-SNAPSHOT.jar app.jar
 
-EXPOSE 9090
+EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","/app.jar"]

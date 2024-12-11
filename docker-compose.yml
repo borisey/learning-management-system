@@ -5,3 +5,8 @@ services:
       context: ./user_service
     ports:
       - "9090:9090"
+  main_client_service:
+    build:
+      context: ./main_client_service
+    ports:
+      - "8080:80"
