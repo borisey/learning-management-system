@@ -5,10 +5,12 @@ services:
       context: ./user_service
     ports:
       - "9090:9090"
-    container_name: user_service
+    container_name: userservice
+    restart: always
   main_client_service:
     build:
       context: ./main_client_service
     ports:
       - "8080:8080"
     container_name: main_client_service
+    restart: always
