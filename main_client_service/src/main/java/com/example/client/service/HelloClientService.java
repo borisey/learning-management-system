@@ -12,7 +12,7 @@ public class HelloClientService {
     private final GreeterGrpc.GreeterBlockingStub blockingStub;
 
     public HelloClientService() {
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("userservice", 9090)
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("userService", 9090)
                 .usePlaintext()
                 .build();
         blockingStub = GreeterGrpc.newBlockingStub(channel);
