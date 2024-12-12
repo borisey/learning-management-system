@@ -12,12 +12,12 @@ com/example/client/grpc/HelloWorldProto.class
 com/example/client/grpc/GreeterGrpc$GreeterStub.class
 com/example/client/grpc/GreeterGrpc$GreeterBlockingStub.class
 com/example/client/grpc/GreeterGrpc$GreeterFileDescriptorSupplier.class
+com/example/client/service/HelloClientService.class
 com/example/client/grpc/HelloWorldProto$HelloReply.class
 com/example/client/grpc/HelloWorldProto$HelloRequestOrBuilder.class
 com/example/client/grpc/HelloWorldProto$HelloRequest.class
 com/example/client/grpc/GreeterGrpc$3.class
 com/example/client/grpc/GreeterGrpc$MethodHandlers.class
-com/example/client/service/HelloWorldService.class
 com/example/client/grpc/GreeterGrpc$GreeterMethodDescriptorSupplier.class
 com/example/client/grpc/GreeterGrpc$AsyncService.class
 com/example/client/grpc/GreeterGrpc.class
