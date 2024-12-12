@@ -4,7 +4,6 @@ import com.example.client.grpc.GreeterGrpc;
 import com.example.client.grpc.HelloWorldProto;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Service;
 
 @Service
