@@ -1,5 +1,6 @@
 /Users/alexey/IdeaProjects/learning-management-system/main_client_service/src/main/java/com/example/client/ClientApplication.java
 /Users/alexey/IdeaProjects/learning-management-system/main_client_service/src/main/java/com/example/client/controllers/DemoController.java
+/Users/alexey/IdeaProjects/learning-management-system/main_client_service/src/main/java/com/example/client/controllers/MainController.java
 /Users/alexey/IdeaProjects/learning-management-system/main_client_service/src/main/java/com/example/client/service/HelloClientService.java
 /Users/alexey/IdeaProjects/learning-management-system/main_client_service/target/generated-sources/protobuf/grpc-java/com/example/client/grpc/GreeterGrpc.java
 /Users/alexey/IdeaProjects/learning-management-system/main_client_service/target/generated-sources/protobuf/java/com/example/client/grpc/HelloWorldProto.java

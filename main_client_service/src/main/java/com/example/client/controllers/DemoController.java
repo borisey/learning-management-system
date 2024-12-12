@@ -17,9 +17,4 @@ public class DemoController {
     public String hello(@RequestParam String name) {
         return grpcClient.sayHello(name);
     }
-
-    @GetMapping(value = "/")
-    public String getMain() {
-        return "textMessage";
-    }
 }

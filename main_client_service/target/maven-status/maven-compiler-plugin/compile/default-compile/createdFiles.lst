@@ -1,4 +1,5 @@
 com/example/client/grpc/HelloWorldProto$HelloRequest$Builder.class
+com/example/client/controllers/MainController.class
 com/example/client/grpc/HelloWorldProto$HelloReplyOrBuilder.class
 com/example/client/controllers/DemoController.class
 com/example/client/grpc/HelloWorldProto$HelloReply$Builder.class
