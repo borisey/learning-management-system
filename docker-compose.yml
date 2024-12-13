@@ -8,7 +8,11 @@ services:
     # Задаю параметры для инициализации БД
     environment:
       # Пароль к БД
-      MYSQL_ROOT_PASSWORD: qwe123
+      MYSQL_DATABASE_HOST: userdb
+      MYSQL_DATABASE_USER: user
+      MYSQL_DATABASE_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE_PORT: 3306
       # БД по умолчанию
       MYSQL_DATABASE: user_db
     # Линкую внешнюю папку для хранения БД
@@ -24,6 +28,12 @@ services:
     restart: always
     depends_on:
       - user_db
+    environment:
+      - DATABASE_HOST=userdb
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=password
+      - DATABASE_NAME=user_db
+      - DATABASE_PORT=3306
   main_client_service:
     build:
       context: ./main_client_service
