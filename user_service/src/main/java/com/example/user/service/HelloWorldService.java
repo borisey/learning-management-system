@@ -9,7 +9,6 @@ public class HelloWorldService extends com.example.user.grpc.GreeterGrpc.Greeter
 
     @Override
     public void sayHello(HelloWorldProto.HelloRequest request, StreamObserver<HelloWorldProto.HelloReply> responseObserver) {
-
         String responseMessage = "Hello, dear " + request.getName();
         HelloWorldProto.HelloReply reply = HelloWorldProto.HelloReply.newBuilder()
                 .setMessage(responseMessage)
