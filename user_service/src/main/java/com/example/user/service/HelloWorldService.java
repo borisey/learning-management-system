@@ -20,7 +20,6 @@ public class HelloWorldService extends com.example.user.grpc.GreeterGrpc.Greeter
 
         User n = new User();
         n.setName(request.getName());
-        n.setEmail("email");
         userRepository.save(n);
 
         Iterable<User> allUsers = userRepository.findAll();
