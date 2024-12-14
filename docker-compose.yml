@@ -1,31 +1,41 @@
+version: '3.1'
+
 services:
   user_service:
+    links:
+      - db
     build:
       context: ./user_service
     ports:
       - "9090:9090"
-    container_name: userService
+    container_name: 'userService'
     restart: always
-    depends_on:
-      - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
-      - SPRING_DATASOURCE_USERNAME=compose-postgres
-      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/mydatabase
+      - SPRING_DATASOURCE_USERNAME=myuser
+      - SPRING_DATASOURCE_PASSWORD=secret
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+#    entrypoint: ["./wait-for-it.sh", "-s" ,"-t", "100", "db:3306", "--"]
+#    command: ["echo", "!!!!!!!! Container_A is available now !!!!!!!!"]
   main_client_service:
     build:
       context: ./main_client_service
     ports:
       - "8080:8080"
-    container_name: main_client_service
-    restart: always
+    container_name: 'main_client_service'
+    depends_on:
+      - db
+    restart: unless-stopped
   db:
-    image: 'postgres:13.1-alpine'
-    container_name: db
-    ports:
-      - "5432:5432"
+    container_name: 'db'
+    image: 'mysql:latest'
     environment:
-      - POSTGRES_USER=compose-postgres
-      - POSTGRES_PASSWORD=compose-postgres
-      - POSTGRES_DATABASE=compose-postgres
+      - 'MYSQL_DATABASE=mydatabase'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=verysecret'
+      - 'MYSQL_USER=myuser'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
