@@ -21,4 +21,9 @@ public class HelloClientService {
         HelloWorldProto.HelloRequest request = HelloWorldProto.HelloRequest.newBuilder().setName(name).build();
         return blockingStub.sayHello(request).getMessage();
     }
+
+    public String getUsers() {
+        HelloWorldProto.GetUsersRequest request = HelloWorldProto.GetUsersRequest.newBuilder().build();
+        return blockingStub.getUsers(request).getMessage();
+    }
 }

@@ -6,7 +6,18 @@
 </head>
 <body>
 <div class="container py-3">
-    <h1>Список пользователей</h1>
+    <h1 style="text-align: center">Список пользователей</h1>
+
+    <p th:text="${users}" />
+
+    <h4 style="text-align: center">Добавить пользователя</h4>
+    <form action="/user/add" method="post">
+        <input th:required="required" type="text" name="title" placeholder="Введите имя пользователя" class="form-control"><br>
+
+        <div style="text-align: center">
+            <button type="submit" class="btn btn-success">Добавить пользователя</button>
+        </div>
+    </form>
 
 
 </div>

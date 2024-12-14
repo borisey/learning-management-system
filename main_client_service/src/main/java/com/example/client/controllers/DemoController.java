@@ -17,4 +17,9 @@ public class DemoController {
     public String hello(@RequestParam String name) {
         return grpcClient.sayHello(name);
     }
+
+    @GetMapping("/get-users")
+    public String getUsers() {
+        return grpcClient.getUsers();
+    }
 }
