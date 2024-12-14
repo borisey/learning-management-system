@@ -7,10 +7,10 @@ import io.grpc.ManagedChannelBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class HelloClientService {
+public class ClientService {
     private final GreeterGrpc.GreeterBlockingStub blockingStub;
 
-    public HelloClientService() {
+    public ClientService() {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("userService", 9090)
                 .usePlaintext()
                 .build();

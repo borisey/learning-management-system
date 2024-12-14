@@ -1,7 +1,7 @@
 package com.example.client.controllers;
 
 import com.example.client.models.User;
-import com.example.client.service.HelloClientService;
+import com.example.client.service.ClientService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 @Controller
 public class MainController {
-    private final HelloClientService grpcClient;
+    private final ClientService grpcClient;
 
-    public MainController(HelloClientService grpcClient) {
+    public MainController(ClientService grpcClient) {
         this.grpcClient = grpcClient;
     }
 

@@ -16,8 +16,6 @@ services:
       - SPRING_DATASOURCE_PASSWORD=secret
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
-#    entrypoint: ["./wait-for-it.sh", "-s" ,"-t", "100", "db:3306", "--"]
-#    command: ["echo", "!!!!!!!! Container_A is available now !!!!!!!!"]
   main_client_service:
     build:
       context: ./main_client_service
