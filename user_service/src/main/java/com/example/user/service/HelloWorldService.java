@@ -3,10 +3,10 @@ package com.example.user.service;
 import com.example.user.grpc.HelloWorldProto;
 import com.example.user.models.User;
 import com.example.user.repo.UserRepository;
+import com.google.gson.Gson;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 
 @GrpcService
 public class HelloWorldService extends com.example.user.grpc.GreeterGrpc.GreeterImplBase {
@@ -29,10 +29,25 @@ public class HelloWorldService extends com.example.user.grpc.GreeterGrpc.Greeter
             System.out.println(user.getName());
         }
 
-
         String responseMessage = "Hello, dear " + request.getName();
         HelloWorldProto.HelloReply reply = HelloWorldProto.HelloReply.newBuilder()
                 .setMessage(responseMessage)
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getUsers(com.example.user.grpc.HelloWorldProto.GetUsersRequest request,
+                         io.grpc.stub.StreamObserver<com.example.user.grpc.HelloWorldProto.GetUsersReply> responseObserver) {
+
+        Iterable<User> allUsers = userRepository.findAll();
+
+        Gson gson = new Gson();
+        String json = gson.toJson(allUsers);
+
+        HelloWorldProto.GetUsersReply reply = HelloWorldProto.GetUsersReply.newBuilder()
+                .setMessage(json)
                 .build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
