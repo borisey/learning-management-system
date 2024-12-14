@@ -8,15 +8,12 @@
 <div class="container py-3">
     <h1 style="text-align: center">Список пользователей</h1>
 
-    <p th:text="${users}" />
-
-<!--    <table>-->
-<!--        <tr th:each="user : ${users}">-->
-<!--            <td style="text-align: center;" th:text="${userAccount.id}" />-->
-<!--            <td style="text-align: center;" th:text="${userAccount.name}" />-->
-<!--            <td style="text-align: center;" th:text="${userAccount.email}" />-->
-<!--        </tr>-->
-<!--    </table>-->
+    <table class="table">
+        <tr th:each="user : ${users}">
+            <td style="text-align: center;" th:text="${user.id}" />
+            <td style="text-align: center;" th:text="${user.name}" />
+        </tr>
+    </table>
 
     <h4 style="text-align: center">Добавить пользователя</h4>
     <form action="/user/add" method="post">
