@@ -4,15 +4,15 @@ option java_package = "com.example.user.grpc";
 option java_outer_classname = "HelloWorldProto";
 
 service Greeter {
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SaveUser (SaveUserRequest) returns (SaveUserReply) {}
   rpc GetUsers (GetUsersRequest) returns (GetUsersReply) {}
 }
 
-message HelloRequest {
+message SaveUserRequest {
   string name = 1;
 }
 
-message HelloReply {
+message SaveUserReply {
   string message = 1;
 }
 

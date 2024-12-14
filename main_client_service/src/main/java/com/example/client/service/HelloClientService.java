@@ -17,9 +17,9 @@ public class HelloClientService {
         blockingStub = GreeterGrpc.newBlockingStub(channel);
     }
 
-    public String sayHello(String name) {
-        HelloWorldProto.HelloRequest request = HelloWorldProto.HelloRequest.newBuilder().setName(name).build();
-        return blockingStub.sayHello(request).getMessage();
+    public String saveUser(String name) {
+        HelloWorldProto.SaveUserRequest request = HelloWorldProto.SaveUserRequest.newBuilder().setName(name).build();
+        return blockingStub.saveUser(request).getMessage();
     }
 
     public String getUsers() {

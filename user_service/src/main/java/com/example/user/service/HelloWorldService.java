@@ -16,7 +16,7 @@ public class HelloWorldService extends com.example.user.grpc.GreeterGrpc.Greeter
     private UserRepository userRepository;
 
     @Override
-    public void sayHello(HelloWorldProto.HelloRequest request, StreamObserver<HelloWorldProto.HelloReply> responseObserver) {
+    public void saveUser(HelloWorldProto.SaveUserRequest request, StreamObserver<HelloWorldProto.SaveUserReply> responseObserver) {
 
         User n = new User();
         n.setName(request.getName());
@@ -28,8 +28,8 @@ public class HelloWorldService extends com.example.user.grpc.GreeterGrpc.Greeter
             System.out.println(user.getName());
         }
 
-        String responseMessage = "Hello, dear " + request.getName();
-        HelloWorldProto.HelloReply reply = HelloWorldProto.HelloReply.newBuilder()
+        String responseMessage = "Пользователь " + request.getName() + " успешно сохранен";
+        HelloWorldProto.SaveUserReply reply = HelloWorldProto.SaveUserReply.newBuilder()
                 .setMessage(responseMessage)
                 .build();
         responseObserver.onNext(reply);

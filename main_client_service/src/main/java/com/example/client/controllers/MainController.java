@@ -40,7 +40,7 @@ public class MainController {
             @RequestParam String name
     ) {
 
-        grpcClient.sayHello(name);
+        grpcClient.saveUser(name);
 
         String referrer = request.getHeader("Referer");
 
